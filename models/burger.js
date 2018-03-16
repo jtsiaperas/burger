@@ -6,15 +6,20 @@ var burger = {
     		handoff(res);
     	});
     },
-    create: function(name,devoured,handoff){
-    	orm.insertOne("burgers",name,devoured, function(res){
+    create: function(name,handoff){
+    	orm.insertOne("burgers",name, function(res){
     		handoff(res);
     	});
     },
-    update: function(name,devoured,id,handoff){
-    	orm.updateOne("burgers",name,devoured,id,function(res){
+    update: function(devoured,id,handoff){
+    	orm.updateOne("burgers",devoured,id,function(res){
     		handoff(res);
     	});
+    },
+    delete: function(id,handoff){
+        orm.delete("burgers",id,function(res){
+            handoff(res);
+        });
     }
 };
 

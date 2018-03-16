@@ -1,10 +1,25 @@
+<div class = "row">
+<div class = "col-12">
+<form>
+  <h3><strong>Add your own burger!</strong></h3>
+  <div class="form-group">
+    <label for="burgerInput">Enter Your Burger's Name:</label>
+    <input type="text" class="form-control" id="burgerInput" placeholder="Animal-Style Triple Double">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button> 
+ </form>
+</div>
+</div>
+<br>
+<div class = "row">
 <div class = "col-6" id = "uneaten">
-<ul>
+<h3><strong>Burgers to eat!</strong></h3>
+<ul class = "list-group">
 {{#each burgers}}
 {{#unless devoured}}
-<li>
+<li class = "list-group-item">
 {{burger_name}}
-<button class = "btn devour" id = {{id}}>Devour Me!</button>
+<button class = "btn devour float-right bg-warning" data-id = {{id}}>Devour Me!</button>
 </li>
 {{/unless}}
 {{/each}}
@@ -12,14 +27,16 @@
 </div>
 
 <div class = "col-6" id = "eaten">
-<ul>
+<h3><strong>Burgers you ate!</strong></h3>
+<ul class = "list-group">
 {{#each burgers}}
 {{#if devoured}}
-<li>
+<li class = "list-group-item">
 {{burger_name}}
-<button class = "btn delete" id = {{id}}>Delete</button>
+<button class = "btn delete float-right bg-danger" data-id = {{id}}>Delete</button>
 </li>
 {{/if}}
 {{/each}}
 </ul>
+</div>
 </div>

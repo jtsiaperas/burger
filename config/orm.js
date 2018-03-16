@@ -14,27 +14,34 @@ var orm = {
       handoff(result);
     });
   },
-  insertOne: function(table,name,devoured,handoff) {
-    var queryString = "INSERT INTO ?? (burger_name, devoured) VAlUES (??,??)";
+  insertOne: function(table,name,handoff) {
+    var queryString = "INSERT INTO ?? (burger_name) VAlUES (??)";
     console.log(queryString);
-    connection.query(queryString, [table, name, devoured], function(err, result) {
+    connection.query(queryString, [table, name], function(err, result) {
       if (err) throw err;
       handoff(result);
     });
   },
-  updateOne: function(table,name,devoured,id,handoff) {
+  updateOne: function(table,devoured,id,handoff) {
     var queryString =
-      "UPDATE ?? SET burger_name = ??, devoured = ?? WHERE id = ??";
+      "UPDATE ?? SET devoured = ?? WHERE id = ??";
 
     connection.query(
       queryString,
-      [table, name, devoured, id],
+      [table, devoured, id],
       function(err, result) {
         if (err) throw err;
         handoff(result);
-      }
-    );
+      });
+  },
+  delete: function(table,id,handoff){
+    var queryString = "delete from ?? where id = ??";
+    connection.query(queryString,[table,id], function(err,result){
+      if (err) throw err;
+      handoff(result);
+    });
   }
 };
+
 
 module.exports = orm;
