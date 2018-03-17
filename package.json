@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/jtsiaperas/burger/issues"
   },
-  "homepage": "https://github.com/jtsiaperas/burger#readme"
+  "homepage": "https://github.com/jtsiaperas/burger#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.15.0"
+  }
 }
