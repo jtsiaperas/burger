@@ -1,12 +1,13 @@
 <div class = "row">
 <div class = "col-12">
-<form>
+<form id="newBurger">
   <h3><strong>Add your own burger!</strong></h3>
   <div class="form-group">
     <label for="burgerInput">Enter Your Burger's Name:</label>
     <input type="text" class="form-control" id="burgerInput" placeholder="Animal-Style Triple Double">
+    <button type="submit" class="btn btn-primary">Submit</button> 
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button> 
+  
  </form>
 </div>
 </div>
@@ -17,9 +18,9 @@
 <ul class = "list-group">
 {{#each burgers}}
 {{#unless devoured}}
-<li class = "list-group-item">
-{{burger_name}}
-<button class = "btn devour float-right bg-warning" data-id = {{id}}>Devour Me!</button>
+<li class = "list-group-item bg-secondary">
+<strong>{{burger_name}}</strong>
+<button class = "btn devour float-right bg-warning" data-id = {{id}}><strong>Devour Me!</strong></button>
 </li>
 {{/unless}}
 {{/each}}
@@ -31,9 +32,9 @@
 <ul class = "list-group">
 {{#each burgers}}
 {{#if devoured}}
-<li class = "list-group-item">
-{{burger_name}}
-<button class = "btn delete float-right bg-danger" data-id = {{id}}>Delete</button>
+<li class = "list-group-item bg-secondary">
+<strong>{{burger_name}}</strong>
+<button class = "btn delete float-right bg-danger" data-id = {{id}}><strong>Delete</strong></button>
 </li>
 {{/if}}
 {{/each}}

@@ -15,7 +15,7 @@ var orm = {
     });
   },
   insertOne: function(table,name,handoff) {
-    var queryString = "INSERT INTO ?? (burger_name) VAlUES (??)";
+    var queryString = "INSERT INTO ?? (burger_name) VAlUES (?)";
     console.log(queryString);
     connection.query(queryString, [table, name], function(err, result) {
       if (err) throw err;
@@ -24,7 +24,7 @@ var orm = {
   },
   updateOne: function(table,devoured,id,handoff) {
     var queryString =
-      "UPDATE ?? SET devoured = ?? WHERE id = ??";
+      "UPDATE ?? SET devoured = ? WHERE id = ?";
 
     connection.query(
       queryString,
@@ -35,7 +35,7 @@ var orm = {
       });
   },
   delete: function(table,id,handoff){
-    var queryString = "delete from ?? where id = ??";
+    var queryString = "delete from ?? where id = ?";
     connection.query(queryString,[table,id], function(err,result){
       if (err) throw err;
       handoff(result);

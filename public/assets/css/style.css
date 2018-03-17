@@ -1,3 +1,15 @@
 li {
-	line-height: 1;
+	color: white;
+	line-height: 2.5;
 }
+
+body, .devour {
+	background-color: orange;
+	font-family: sans-serif;
+}
+
+
+.btn-primary {
+   background-color: black;
+}
+

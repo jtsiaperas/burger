@@ -13,31 +13,29 @@ router.get("/",function(req,res){
 });
 
 router.post("/api/burgers", function(req,res){
-    var burger = req.body;
-    burger.create(burger.burger_name,function(data){
-        console.log(json.stringify(data));
-        res.redirect("/");
+    var newBurger = req.body;
+    console.log(newBurger);
+    burger.create(newBurger.burger_name,function(data){
+        // console.log(JSON.stringify(data));
+        console.log("burger created");
+        res.end();
     });
 });
 
 router.put("/api/burgers/:id", function(req,res){
     var id = req.params.id;
-    burger.update(false,id, function(result){
-        console.log(json.stringify(result));
-        if (result.changedRows == 0) {
-        // If no rows were changed, then the ID must not exist, so 404
-        return res.status(404).end();
-        } 
-        else {
-        res.status(200).end();
-        }
+    burger.update(true,id, function(result){
+        console.log("burger devoured");
+        // console.log(JSON.stringify(result));
+       res.end();
     });
 });
 
-router.delete("api/burgers/:id", function(req,res){
+router.delete("/api/burgers/:id", function(req,res){
     var id = req.params.id;
     burger.delete(id, function(result){
         console.log("burger deleted");     
+        res.end();
     });
 });
 module.exports = router;
